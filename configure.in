@@ -1,0 +1,69 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ([2.69])
+AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
+
+dnl Most of these things are boiler plate (from autoscan);
+dnl but here's some of my stuff
+dnl BEGIN MARK's BLOCK OF STUFF
+
+dnl NOTHING IN HERE YET
+
+dnl END MARK's BLOCK OF STUFF
+
+AC_CONFIG_SRCDIR([YASceneDevelop.h])
+AC_CONFIG_HEADERS([config.h])
+
+# Checks for programs.
+AC_PROG_CC
+AC_PROG_CXX
+
+# Checks for libraries.
+# FIXME: Replace `main' with a function in `-lBulletCollision':
+AC_CHECK_LIB([BulletCollision], [main])
+# FIXME: Replace `main' with a function in `-lBulletDynamics':
+AC_CHECK_LIB([BulletDynamics], [main])
+# FIXME: Replace `main' with a function in `-lBulletSoftBody':
+AC_CHECK_LIB([BulletSoftBody], [main])
+# FIXME: Replace `main' with a function in `-lGL':
+AC_CHECK_LIB([GL], [main])
+# FIXME: Replace `main' with a function in `-lGLEW':
+AC_CHECK_LIB([GLEW], [main])
+# FIXME: Replace `main' with a function in `-lLinearMath':
+AC_CHECK_LIB([LinearMath], [main])
+# FIXME: Replace `main' with a function in `-lalut':
+AC_CHECK_LIB([alut], [main])
+# FIXME: Replace `main' with a function in `-lbsd':
+AC_CHECK_LIB([bsd], [main])
+# FIXME: Replace `main' with a function in `-lfreetype':
+AC_CHECK_LIB([freetype], [main])
+# FIXME: Replace `main' with a function in `-lglfw':
+AC_CHECK_LIB([glfw], [main])
+# FIXME: Replace `main' with a function in `-lobjc':
+AC_CHECK_LIB([objc], [main])
+# FIXME: Replace `main' with a function in `-lobjcxx':
+AC_CHECK_LIB([objcxx], [main])
+# FIXME: Replace `main' with a function in `-lopenal':
+AC_CHECK_LIB([openal], [main])
+# FIXME: Replace `main' with a function in `-lpng':
+AC_CHECK_LIB([png], [main])
+# FIXME: Replace `main' with a function in `-lvorbisfile':
+AC_CHECK_LIB([vorbisfile], [main])
+# FIXME: Replace `main' with a function in `-lz':
+AC_CHECK_LIB([z], [main])
+
+# Checks for header files.
+AC_CHECK_HEADERS([sys/ioctl.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_CHECK_HEADER_STDBOOL
+AC_C_INLINE
+AC_TYPE_SIZE_T
+
+# Checks for library functions.
+AC_FUNC_MALLOC
+AC_CHECK_FUNCS([atexit floor pow sqrt strchr strstr])
+
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT

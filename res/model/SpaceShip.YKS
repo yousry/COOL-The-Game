@@ -1,0 +1,4 @@
+// Rotation_Euler
+[ipo addIpo:[[YAVector3f alloc] initVals:-90.0f :180.00000500895632f : -0.0f] timeFrame: 0.016666666666666666f ];
+[ipo addIpo:[[YAVector3f alloc] initVals:-94.24205120102921f :225.90167660900173f : 60.001811669782164f] timeFrame: 1.0f ];
+[ipo addIpo:[[YAVector3f alloc] initVals:-90.0f :270.00000068324533f : -0.0f] timeFrame: 2.0f ];
