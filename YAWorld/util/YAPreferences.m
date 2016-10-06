@@ -69,7 +69,6 @@
 	}
 
 	NSDictionary* dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
-		_resourceDir, 									@"RESOURCEDIR", 
 		_configDir, 									@"CONFIGDIR",
 		[NSNumber numberWithInt:_isMultisampling],		@"MULTISAMPLING",
 		[NSNumber numberWithInt:_multispamplingPixel],	@"MULTISAMPLINGPIXEL",
@@ -99,7 +98,15 @@
 	if(dictionary == nil)
 		return false;
 	
-	_resourceDir = [dictionary objectForKey:@"RESOURCEDIR"];
+
+	char buf[1024];  
+	int pathLength = readlink("/proc/self/exe", buf, 1024 - 1);  
+	NSString* applicationPath = [[NSString alloc] initWithBytes:buf length:pathLength encoding:NSASCIIStringEncoding];
+	NSString *sub = [applicationPath lastPathComponent];
+	applicationPath = [applicationPath substringToIndex: applicationPath.length - sub.length];		
+	_resourceDir = [NSString stringWithFormat:@"%@res", applicationPath];
+
+
 	_configDir = [dictionary objectForKey:@"CONFIGDIR"];
 	_isMultisampling = (( NSNumber*)[dictionary objectForKey:@"MULTISAMPLING"]).boolValue;
 	_multispamplingPixel = ((NSNumber*)[dictionary objectForKey:@"MULTISAMPLINGPIXEL"]).intValue;
