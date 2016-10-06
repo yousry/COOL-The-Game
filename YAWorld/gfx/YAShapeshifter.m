@@ -67,6 +67,7 @@ static const NSString* MODEL_DIRECTORY_NAME = @"model";
         // [iStream close];
 
         inherentModel = [shapeShifterJson objectForKey:@"Y3D"];
+        if(inherentModel) inherentModel = inherentModel.copy;
         
         NSArray* shapersJson = [shapeShifterJson objectForKey:@"Shapers"];
         [YALog debug:TAG message:[NSString stringWithFormat:@"Number of shapers: %ld", [shapersJson count]]];
